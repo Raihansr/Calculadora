@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/root_layout_id"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".MainActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Calculator Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="25dp"
+        android:weightSum="5">
+
+
+        <!-- Result Panel -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.75"
+            android:layout_margin="7.5dp"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="@color/resultBox_CenterColor">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="7.5dp">
+
+                <!-- Equation Box -->
+                <TextView
+                    android:id="@+id/equation_etxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:background="@drawable/shape_cal_equation_box"
+                    android:textIsSelectable="false"
+                    android:textAllCaps="false"
+                    android:textColor="@color/color_black"
+                    android:textSize="25sp"/>
+
+
+                <!-- Result Box -->
+                <EditText
+                    android:id="@+id/result_etxt"
+                    android:layout_below="@+id/equation_etxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:maxLines="2"
+                    android:scrollbars="horizontal"
+                    android:enabled="false"
+                    android:text="0"
+                    android:textIsSelectable="false"
+                    android:textAlignment="textEnd"
+                    android:textAllCaps="false"
+                    android:textColor="@color/color_black"
+                    android:textSize="40sp"
+                    tools:ignore="Autofill,HardcodedText,LabelFor,TextFields" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- Button Panel -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3.25"
+            android:layout_margin="7.5dp"
+            android:padding="7.5dp"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="15dp"
+            app:cardBackgroundColor="@color/Color_DarkGray">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="2.5dp"
+                android:paddingBottom="2.5dp">
+
+
+                <!-- 1st Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    tools:ignore="NestedWeights">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_Mod_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="7.5dp"
+                        android:layout_marginEnd="7.5dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray">
+
+                        <Button
+                            android:id="@+id/btn_Mod"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="Mod"
+                            android:fontFamily="serif-monospace"
+                            android:textColor="@color/color_white"
+                            android:textAllCaps="false"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText" />
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_Factorial_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="3.75dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray">
+
+                        <Button
+                            android:id="@+id/btn_Factorial"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="x!"
+                            android:fontFamily="serif-monospace"
+                            android:textColor="@color/color_white"
+                            android:textSize="20sp"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText" />
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_erase_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginStart="3.75dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray">
+
+                        <Button
+                            android:id="@+id/btn_erase"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="&#x21E8;"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/color_orange"
+                            android:textSize="20sp"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_clear_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="7.5dp"
+                        android:layout_marginEnd="7.5dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray">
+
+                        <Button
+                            android:id="@+id/btn_clear"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="C"
+                            android:fontFamily="serif-monospace"
+                            android:textColor="@color/color_orange"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_view"/>
+
+
+                <!-- 2nd Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_Minus_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="7.5dp"
+                        android:layout_marginEnd="7.5dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray"
+                        tools:ignore="NestedWeights">
+
+                        <Button
+                            android:id="@+id/btn_Minus"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="±"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/color_white"
+                            android:textSize="20sp"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_percent_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="3.75dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray">
+
+                        <Button
+                            android:id="@+id/btn_percent"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="%"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/color_white"
+                            android:textSize="20sp"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_Div_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="3.75dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray">
+
+                        <Button
+                            android:id="@+id/btn_Div"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="÷"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/color_white"
+                            android:textSize="20sp"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_Mul_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="7.5dp"
+                        android:layout_marginEnd="7.5dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray">
+
+                        <Button
+                            android:id="@+id/btn_Mul"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="×"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/color_white"
+                            android:textSize="20sp"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_view"/>
+
+
+                <!-- 3rd Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_7_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="7.5dp"
+                        android:layout_marginEnd="7.5dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray"
+                        tools:ignore="NestedWeights">
+
+                        <Button
+                            android:id="@+id/btn_7"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="7"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/color_pink"
+                            android:textSize="20sp"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_8_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="3.75dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray">
+
+                        <Button
+                            android:id="@+id/btn_8"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="8"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/color_pink"
+                            android:textAllCaps="false"
+                            android:textSize="20sp"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_9_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="3.75dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray">
+
+                        <Button
+                            android:id="@+id/btn_9"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="9"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/color_pink"
+                            android:textSize="20sp"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_Sub_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="7.5dp"
+                        android:layout_marginEnd="7.5dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray">
+
+                        <Button
+                            android:id="@+id/btn_Sub"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="−"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/color_white"
+                            android:textSize="20sp"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_view"/>
+
+
+                <!-- 4th Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_4_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="7.5dp"
+                        android:layout_marginEnd="7.5dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray"
+                        tools:ignore="NestedWeights">
+
+                        <Button
+                            android:id="@+id/btn_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:text="4"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/color_pink"
+                            android:textSize="18sp"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_5_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="3.75dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray">
+
+                        <Button
+                            android:id="@+id/btn_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="5"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/color_pink"
+                            android:textSize="18sp"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_6_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="3.75dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray">
+
+                        <Button
+                            android:id="@+id/btn_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="6"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/color_pink"
+                            android:textSize="18sp"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_Add_view"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="7.5dp"
+                        android:layout_marginEnd="7.5dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="15dp"
+                        app:cardBackgroundColor="@color/Color_DarkGray">
+
+                        <Button
+                            android:id="@+id/btn_Add"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:text="+"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/color_white"
+                            android:textSize="20sp"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_view"/>
+
+
+                <!-- 5th Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:weightSum="4"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <!-- 1st Column (5th Row) -->
+                    <LinearLayout
+                        android:layout_weight="3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:weightSum="2"
+                        tools:ignore="NestedWeights">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:weightSum="3"
+                            tools:ignore="NestedWeights">
+
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_1_view"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginStart="7.5dp"
+                                android:layout_marginEnd="7.5dp"
+                                app:cardElevation="5dp"
+                                app:cardCornerRadius="15dp"
+                                app:cardBackgroundColor="@color/Color_DarkGray">
+
+                                <Button
+                                    android:id="@+id/btn_1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:background="@android:color/transparent"
+                                    android:text="1"
+                                    android:fontFamily="sans-serif"
+                                    android:textColor="@color/color_pink"
+                                    android:textSize="18sp"
+                                    android:textAllCaps="false"
+                                    android:textStyle="bold"
+                                    tools:ignore="ButtonStyle,HardcodedText,NestedWeights"/>
+
+                            </androidx.cardview.widget.CardView>
+
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_2_view"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginEnd="3.75dp"
+                                app:cardElevation="5dp"
+                                app:cardCornerRadius="15dp"
+                                app:cardBackgroundColor="@color/Color_DarkGray">
+
+                                <Button
+                                    android:id="@+id/btn_2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:background="@android:color/transparent"
+                                    android:text="2"
+                                    android:fontFamily="sans-serif"
+                                    android:textColor="@color/color_pink"
+                                    android:textSize="18sp"
+                                    android:textAllCaps="false"
+                                    android:textStyle="bold"
+                                    tools:ignore="ButtonStyle,HardcodedText"/>
+
+                            </androidx.cardview.widget.CardView>
+
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_3_view"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginStart="3.75dp"
+                                app:cardElevation="5dp"
+                                app:cardCornerRadius="15dp"
+                                app:cardBackgroundColor="@color/Color_DarkGray">
+
+                                <Button
+                                    android:id="@+id/btn_3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:background="@android:color/transparent"
+                                    android:text="3"
+                                    android:fontFamily="sans-serif"
+                                    android:textColor="@color/color_pink"
+                                    android:textSize="18sp"
+                                    android:textAllCaps="false"
+                                    android:textStyle="bold"
+                                    tools:ignore="ButtonStyle,HardcodedText"/>
+
+                            </androidx.cardview.widget.CardView>
+
+
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/color_view"/>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_Dot_view"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginStart="7.5dp"
+                                android:layout_marginEnd="7.5dp"
+                                app:cardElevation="5dp"
+                                app:cardCornerRadius="15dp"
+                                app:cardBackgroundColor="@color/Color_DarkGray">
+
+                                <Button
+                                    android:id="@+id/btn_Dot"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:background="@android:color/transparent"
+                                    android:text="•"
+                                    android:fontFamily="sans-serif"
+                                    android:textColor="@color/color_orange"
+                                    android:textSize="20sp"
+                                    android:textAllCaps="false"
+                                    android:textStyle="bold"
+                                    tools:ignore="ButtonStyle,HardcodedText"/>
+
+                            </androidx.cardview.widget.CardView>
+
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_0_view"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginEnd="3.75dp"
+                                app:cardElevation="5dp"
+                                app:cardCornerRadius="15dp"
+                                app:cardBackgroundColor="@color/Color_DarkGray">
+
+                                <Button
+                                    android:id="@+id/btn_0"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:background="@android:color/transparent"
+                                    android:text="0"
+                                    android:fontFamily="sans-serif"
+                                    android:textColor="@color/color_pink"
+                                    android:textSize="18sp"
+                                    android:textAllCaps="false"
+                                    android:textStyle="bold"
+                                    tools:ignore="ButtonStyle,HardcodedText"/>
+
+                            </androidx.cardview.widget.CardView>
+
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/btn_Ans_view"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginStart="3.75dp"
+                                app:cardElevation="5dp"
+                                app:cardCornerRadius="15dp"
+                                app:cardBackgroundColor="@color/Color_DarkGray">
+
+                                <Button
+                                    android:id="@+id/btn_Ans"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@android:color/transparent"
+                                    android:clickable="true"
+                                    android:focusable="true"
+                                    android:fontFamily="serif-monospace"
+                                    android:text="Ans"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/color_orange"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    tools:ignore="ButtonStyle,HardcodedText"/>
+
+                            </androidx.cardview.widget.CardView>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <!-- 2nd Column (5th Row) -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btn_Equal_view"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="7.5dp"
+                        android:layout_marginEnd="7.5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardBackgroundColor="@android:color/transparent">
+
+                        <Button
+                            android:id="@+id/btn_Equal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="@drawable/bg_equal_button"
+                            android:gravity="bottom|center_horizontal"
+                            android:text="="
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/color_white"
+                            android:textSize="25sp"
+                            android:textStyle="bold"
+                            android:textAllCaps="false"
+                            tools:ignore="ButtonStyle,HardcodedText"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+
+    <!-- Footer -->
+    <include layout="@layout/layout_footer"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

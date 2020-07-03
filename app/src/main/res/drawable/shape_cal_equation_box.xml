@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <stroke
+        android:color="@color/Box_BorderColor"
+        android:width="3dp"/>
+
+    <corners
+        android:radius="10dp"/>
+
+
+    <gradient
+        android:startColor="@color/equationBox_StartEndColor"
+        android:centerColor="@color/equationBox_CenterColor"
+        android:endColor="@color/equationBox_StartEndColor"
+        android:type="linear"
+        android:angle="90"/>
+
+</shape>

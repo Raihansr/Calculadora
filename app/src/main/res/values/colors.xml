@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Color_DarkGray">#2B2D41</color>
+    <color name="colorPrimaryDark">#2B2D40</color>
+    <color name="color_pink">#ff004d</color>
+    <color name="mainBackground_ColorGray">#2B2D41</color>
+    <color name="button_ColorGray">#2B2D41</color>
+    <color name="equationBox_StartEndColor">#b8c7b0</color>
+    <color name="equationBox_CenterColor">#d5e6ca</color>
+    <color name="resultBox_CenterColor">#b8c7b0</color>
+    <color name="Box_BorderColor">#b5c4ad</color>
+    <color name="color_black">#000000</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_view">#2f3248</color>
+    <color name="color_orange">#FF7300</color>
+    <color name="Transparent_white">#c8ffffff</color>
+</resources>

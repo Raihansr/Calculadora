@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base Application Theme -->
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+
+        <item name="colorPrimary">@color/Color_DarkGray</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/color_pink</item>
+
+        <!-- Action Bar Background -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+
+        <!-- Remove Notification Bar -->
+        <item name="android:windowFullscreen">true</item>
+
+        <!-- Remove White Screen When Activity Start -->
+        <item name="android:windowDisablePreview">true</item>
+
+        <!-- Activity Start/End With Animation -->
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+
+    </style>
+
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/bg_action_bar</item>
+        <item name="background">@drawable/bg_action_bar</item>
+    </style>
+
+</resources>

@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="app_name">Calculadora</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Clear">Clear</string>
+    <string name="Send">Send</string>
+    <string name="Vibration">Vibration</string>
+    <string name="Feedback">Report/Feedback</string>
+    <string name="Feedback_Hint">Write Here…</string>
+    <string name="Share">Share</string>
+    <string name="History">History</string>
+    <string name="Email">Your Email…</string>
+    <string name="Point">&#10051;&#160;&#160;&#160;</string>
+
+</resources>
